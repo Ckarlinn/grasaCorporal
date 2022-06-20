@@ -1,36 +1,37 @@
-# Health Overview
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Reto: Calculadora de Grasa Corporal 
+## **Objetivo**
 
-## Dev
+Desarrollar un componente web capaz de estimar el porcentaje de grasa corporal de cualquier persona al introducir ciertos valores como peso, altura, entre otras variables.
 
-First, run the development server:
+En el desarrollo se utilizó el framework de NextJS, cuenta dos ramas:
 
-```bash
+## Rama main
+
+En esta rama utilicé la fórmula para calcular con el siguiente método:
+
+https://www.youtube.com/watch?v=b4cw7FPC-fI&t=223s&ab_channel=Nutrici%C3%B3nEsc%C3%A9ptica
+
+## Rama formula Dos
+
+
+En esta rama utilicé la fórmula que se presentaba en el reto:
+
+https://productplayers.notion.site/Reto-Calculadora-de-Grasa-Corporal-efe9114cb65640f0b40d74ea44992444
+
+## Tech
+
+- [NextJS] - great UI boilerplate for modern web apps
+- [Tailwind CSS] - fast node.js network app framework [@tjholowaychuk]
+
+## Instalación
+
+Clonar repositorio.
+
+```sh
+git clone https://github.com/Ckarlinn/grasaCorporal.git
+cd / grasaCorporal
+npm i
 npm run dev
-# or
-yarn dev
 ```
-## Production
-
-```bash
-npm run build
-# and
-npm start 
-```
-
-# Deploment with Docker 
-
-## Generate Image
-
-```bash
-docker build -t next-app . 
-```
-
-## Run Image 
-
-```bash
-docker run --name=next-app -p 3000:3000 next-app 
-``` 
-
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abrir una pestaña del navegador con la siguiente dirección
+http://localhost:3000/
