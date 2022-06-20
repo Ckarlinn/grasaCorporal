@@ -45,11 +45,12 @@ export const Range: FC<Props> = ({ resCalc }) => {
 
   return <>
 
-    <h3 className="text-2xl lg:text-3xl font-bold pb-[80px] ">Tu resultado : <span className="transition ease-in-out delay-150 duration-300">{state.range} %</span> </h3>
+    <h3 className="text-2xl lg:text-3xl font-bold py-14 ">Tu resultado : <span className="transition ease-in-out delay-150 duration-300">{state.range} %</span> </h3>
 
     {/* RANGE */}
-    <div>
+    <div className="">
       <div className="relative w-full ">
+
         <label
           className="transition-all  ease-in-out delay-150 duration-300 absolute"
           style={{
@@ -69,7 +70,7 @@ export const Range: FC<Props> = ({ resCalc }) => {
 
     {/* POINTS */}
 
-    <div className="inline-flex pt-[10px] justify-around w-full pb-10">
+    <div className="inline-flex pt-5 justify-around w-full pb-10">
       <StepPoint color="bg-[#009FE3]" title="Esencial" range="2-4%" />
       <StepPoint color="bg-[#009C3D]" title="Deportista" range="6-13%" />
       <StepPoint color="bg-[#98C21D]" title="Fitness" range="14-17%" />

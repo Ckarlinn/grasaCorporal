@@ -54,7 +54,7 @@ export const FormCalculator: FC<Props> = ({ setResCalc }) => {
         else
             res = calculateForMale(dataCalcultator)
 
-        if (res < 0) {
+        if (res < 0 ) {
             generateToast()
         }
         setResCalc(res)
@@ -77,9 +77,9 @@ export const FormCalculator: FC<Props> = ({ setResCalc }) => {
 
     return <>
 
-        <form onSubmit={handleSubmit(onHandleSubmit)} autoComplete='off' className=" w-full md:w-[75%] ">
+        <form onSubmit={handleSubmit(onHandleSubmit)} autoComplete='off' className=" w-full md:w-[85%] ">
 
-            <div className="flex flex-col pt-2">
+            <div className="flex flex-col">
 
                 <span className="font-bold">Género </span>
                 <div className="flex gap-4 ">
@@ -93,9 +93,9 @@ export const FormCalculator: FC<Props> = ({ setResCalc }) => {
                     </label>
                 </div>
             </div>
-            <label className="flex flex-col pt-2"></label>
+            <label className="flex flex-col"></label>
 
-            <label className="flex flex-col pt-2">
+            <label className="flex flex-col">
                 <span className="font-bold">Altura (cm)</span>
                 <Controller
                     control={control}
@@ -115,7 +115,7 @@ export const FormCalculator: FC<Props> = ({ setResCalc }) => {
                 {errors.height?.type === "min" && <span className="text-red-500">El valor mínimo es de 0 </span>}
                 {errors.height?.type === "max" && <span className="text-red-500">El valor máximo es de 400 cm </span>}
             </label>
-            <label className="flex flex-col pt-2">
+            <label className="flex flex-col">
                 <span className="font-bold">Peso (kg)</span>
                 <Controller
                     control={control}
@@ -134,7 +134,7 @@ export const FormCalculator: FC<Props> = ({ setResCalc }) => {
                 {errors.weigth?.type === "required" && <span className="text-red-500">El campo peso  es requerido</span>}
                 {errors.weigth?.type === "min" && <span className="text-red-500">El valor mínimo es de 0 </span>}
             </label>
-            <label className="flex flex-col pt-2">
+            <label className="flex flex-col">
                 <span className="font-bold">Cintura (cm)</span>
                 <Controller
                     control={control}
@@ -153,11 +153,11 @@ export const FormCalculator: FC<Props> = ({ setResCalc }) => {
                 {errors.waist?.type === "required" && <span className="text-red-500">El campo cintura  es requerido</span>}
                 {errors.waist?.type === "min" && <span className="text-red-500">El valor mínimo es de 0 </span>}
             </label>
-            <label className="flex flex-col pt-2">
-                <span className="font-bold">Cadera (cm)</span>
+            <label className="flex flex-col">
+                <span className="font-bold">Cuello (cm)</span>
                 <Controller
                     control={control}
-                    name="hip"
+                    name="neck"
                     rules={{ required: true, min: 0 }}
                     render={({ field }
                     ) => (
@@ -169,11 +169,34 @@ export const FormCalculator: FC<Props> = ({ setResCalc }) => {
                             allowNegative={false} />
                     )}
                 />
-                {errors.hip?.type === "required" && <span className="text-red-500">El campo cadera es requerido</span>}
-                {errors.hip?.type === "min" && <span className="text-red-500">El valor mínimo es de 0 </span>}
+                {errors.neck?.type === "required" && <span className="text-red-500">El campo cuello es requerido</span>}
+                {errors.neck?.type === "min" && <span className="text-red-500">El valor mínimo es de 0 </span>}
             </label>
-            <button type="submit" className="bg-[#8667F0] text-white px-8 mt-5 py-2 rounded-3xl  font-semibold">Calcular</button>
-            <button type="button" onClick={handleReset} className=" text-white px-8 mt-5 py-2 rounded-3xl font-semibold">Limpiar</button>
+            {
+                gender == 'f' &&
+
+                <label className="flex flex-col">
+                    <span className="font-bold">Cadera (cm)</span>
+                    <Controller
+                        control={control}
+                        name="hip"
+                        rules={{ required: true, min: 0 }}
+                        render={({ field }
+                        ) => (
+                            <NumberFormat
+                                decimalSeparator="."
+                                {...field}
+                                displayType="input"
+                                type="text"
+                                allowNegative={false} />
+                        )}
+                    />
+                    {errors.hip?.type === "required" && <span className="text-red-500">El campo cadera es requerido</span>}
+                    {errors.hip?.type === "min" && <span className="text-red-500">El valor mínimo es de 0 </span>}
+                </label>
+            }
+            <button type="submit" className="bg-[#8667F0] text-white px-8 mt-5 py-2 rounded-xl font-semibold ">Calcular</button>
+            <button type="button" onClick={handleReset} className=" text-white px-8 mt-5 py-2 rounded-xl font-semibold ">Limpiar</button>
             <ToastContainer />
         </form>
     </>
